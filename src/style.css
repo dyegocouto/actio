@@ -14,3 +14,13 @@
 
   --shadow: rgba(90, 57, 35, 0.08);
 }
+
+.header {
+  font-size: clamp(2.25rem, 2.8vw + 1.35rem, 3rem);
+  font-family:
+    "Iowan Old Style", "Palatino Linotype", "URW Palladio L", P052, serif;
+  background-color: var(--surface);
+  color: var(--heading);
+  text-align: center;
+  padding: 1rem;
+}
