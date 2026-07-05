@@ -1,3 +1,4 @@
+@import "./header.css";
 @import "./sidebar.css";
 
 :root {
@@ -28,15 +29,4 @@ h2,
 h3 {
   margin: 0;
   padding: 0;
-}
-
-.header {
-  background-color: var(--surface);
-  text-align: center;
-  padding: 1rem;
-}
-
-.header__title {
-  font-size: clamp(2.25rem, 2.8vw + 1.35rem, 3rem);
-  color: var(--heading);
 }
