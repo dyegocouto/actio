@@ -1,0 +1,26 @@
+.content {
+  border-top: 1px solid var(--border);
+  padding: 1.2rem 1rem;
+  background-color: var(--bg);
+}
+
+.left-header > h2 {
+  color: var(--heading);
+}
+
+.left-header > p {
+  color: var(--text);
+}
+
+.add-task {
+  background-color: var(--primary);
+  color: var(--surface);
+  border: none;
+  border-radius: 1.25rem;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.add-task:hover {
+  background-color: var(--primary-hover);
+}
