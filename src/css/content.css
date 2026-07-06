@@ -1,5 +1,5 @@
 .content {
-  border-top: .0625rem solid var(--border);
+  border-top: 0.0625rem solid var(--border);
   padding: 1.2rem 1rem;
   background-color: var(--bg);
 }
@@ -61,4 +61,8 @@
 
 .completed-number {
   color: var(--primary);
+}
+
+.in-progress-number {
+  color: var(--text);
 }
