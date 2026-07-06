@@ -22,8 +22,8 @@
   background-color: var(--primary);
   color: var(--surface);
   border: none;
-  border-radius: 0.625rem;
-  padding: 0.3rem 0.8rem;
+  border-radius: 1.25rem;
+  padding: 0.5rem 0.8rem;
   cursor: pointer;
 }
 
