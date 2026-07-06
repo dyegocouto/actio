@@ -21,8 +21,15 @@
   --body-font: system-ui, sans-serif;
 }
 
+html,
 body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
   font-family: var(--body-font);
+  min-height: 100vh;
 }
 
 h1,
@@ -35,4 +42,5 @@ h3 {
 .main {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
