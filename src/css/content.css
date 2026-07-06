@@ -1,5 +1,5 @@
 .content {
-  border-top: 1px solid var(--border);
+  border-top: .0625rem solid var(--border);
   padding: 1.2rem 1rem;
   background-color: var(--bg);
 }
@@ -28,7 +28,6 @@
 .content-dashboard {
   margin-top: 2rem;
   display: flex;
-  /* flex-wrap: wrap; */
   gap: 1rem;
 }
 
@@ -52,7 +51,7 @@
   font-weight: bold;
   text-transform: uppercase;
   color: var(--primary);
-  font-size: .9rem;
+  font-size: 0.9rem;
 }
 
 .status > span {
