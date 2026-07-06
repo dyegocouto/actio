@@ -24,3 +24,42 @@
 .add-task:hover {
   background-color: var(--primary-hover);
 }
+
+.content-dashboard {
+  margin-top: 2rem;
+  display: flex;
+  /* flex-wrap: wrap; */
+  gap: 1rem;
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  padding: 1rem;
+  background-color: var(--surface);
+  box-shadow: var(--shadow) 0px 1px 4px;
+  border-radius: 0.9375rem;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: min(100%, 32rem);
+}
+
+.status > p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-size: .9rem;
+}
+
+.status > span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.completed-number {
+  color: var(--primary);
+}
