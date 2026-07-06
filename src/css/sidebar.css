@@ -46,6 +46,8 @@
   cursor: pointer;
   border-radius: 0.625rem;
   padding: 0.8rem;
+  color: var(--text);
+  border: 0.0625rem solid var(--border);
 }
 
 .active {
