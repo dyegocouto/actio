@@ -1,0 +1,38 @@
+#app {
+  height: 100%;
+}
+
+.global-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 1024px) {
+  .global-wrapper {
+    display: grid;
+    grid-template-columns: minmax(18rem, min(25%, 400px)) 1fr;
+    grid-template-areas:
+      "header header"
+      "sidebar main";
+    grid-template-rows: auto 1fr;
+  }
+
+  .header {
+    grid-area: header;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    min-width: 0;
+  }
+
+  .main {
+    grid-area: main;
+    min-width: 0;
+  }
+}
