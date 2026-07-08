@@ -1,5 +1,6 @@
 .content {
   flex: 1;
+  min-height: 100%;
   border-top: 0.0625rem solid var(--border);
   padding: 1.2rem 1rem;
   background-color: var(--bg);

@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="app">
-      <main class="main">
+      <div class="global-wrapper">
         <header class="header">
           <h1 class="header__title">Actio</h1>
         </header>
@@ -26,26 +26,28 @@
             <li class="project">Football</li>
           </ul>
         </nav>
-        <div class="content">
-          <div class="content-header">
-            <div class="left-header">
-              <h2>Task List</h2>
-              <p>You have 0 task(s) to complete.</p>
+        <main class="main">
+          <div class="content">
+            <div class="content-header">
+              <div class="left-header">
+                <h2>Task List</h2>
+                <p>You have 0 task(s) to complete.</p>
+              </div>
+              <button class="button add-task">+ Add Task</button>
             </div>
-            <button class="button add-task">+ Add Task</button>
+            <div class="content-dashboard">
+              <div class="status">
+                <p>Completed</p>
+                <span class="completed-number">0</span>
+              </div>
+              <div class="status">
+                <p>In Progress</p>
+                <span class="in-progress-number">0</span>
+              </div>
+            </div>
           </div>
-          <div class="content-dashboard">
-            <div class="status">
-              <p>Completed</p>
-              <span class="completed-number">0</span>
-            </div>
-            <div class="status">
-              <p>In Progress</p>
-              <span class="in-progress-number">0</span>
-            </div>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
     <script type="module" src="/src/js/main.js"></script>
   </body>
