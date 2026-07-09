@@ -15,7 +15,7 @@
 @media (min-width: 1024px) {
   .global-wrapper {
     display: grid;
-    grid-template-columns: minmax(18rem, min(25%, 400px)) 1fr;
+    grid-template-columns: minmax(18rem, min(25%, 300px)) 1fr;
     grid-template-areas:
       "header header"
       "sidebar main";
