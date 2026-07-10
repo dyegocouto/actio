@@ -15,24 +15,26 @@
 @media (min-width: 1024px) {
   .global-wrapper {
     display: grid;
-    grid-template-columns: minmax(18rem, min(25%, 300px)) 1fr;
-    grid-template-areas:
-      "header header"
-      "sidebar main";
-    grid-template-rows: auto 1fr;
+    grid-template:
+      "header header" auto
+      "sidebar main" 1fr
+      / minmax(18rem, min(25%, 300px)) 1fr;
   }
 
   .header {
     grid-area: header;
   }
 
+  .sidebar,
+  .main {
+    min-width: 0;
+  }
+
   .sidebar {
     grid-area: sidebar;
-    min-width: 0;
   }
 
   .main {
     grid-area: main;
-    min-width: 0;
   }
 }
