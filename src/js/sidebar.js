@@ -9,9 +9,9 @@ if (projectList) {
     }
 
     projectList
-      .querySelectorAll(".project.active")
-      .forEach((item) => item.classList.remove("active"));
+      .querySelectorAll(".project.project--active")
+      .forEach((item) => item.classList.remove("project--active"));
 
-    projectItem.classList.add("active");
+    projectItem.classList.add("project--active");
   });
 }
