@@ -71,7 +71,151 @@
   color: var(--text);
 }
 
-@media (min-width: 426px) {
+.content-tasks {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 2rem;
+}
+
+.task-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  min-width: 0;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  background-color: var(--surface);
+  border: 0.0625rem solid var(--border);
+  border-radius: 0.9375rem;
+  box-shadow: var(--shadow) 0 0.25rem 0.75rem;
+  color: var(--text);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.task-card:hover {
+  border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+  box-shadow: var(--shadow) 0 0.5rem 1rem;
+  transform: translateY(-0.125rem);
+}
+
+.task-card input[type="checkbox"] {
+  flex: 0 0 auto;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.task-content {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: clamp(0.75rem, 2vw, 1.25rem);
+  min-width: 0;
+}
+
+.task-info {
+  display: grid;
+  flex: 1 1 auto;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.task-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.task-title {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--heading);
+  font-size: clamp(1rem, 1vw + 0.75rem, 1.125rem);
+  font-weight: 650;
+}
+
+.due-date {
+  margin: 0;
+  overflow-wrap: anywhere;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.task-priority {
+  flex: 0 0 auto;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  background-color: color-mix(in srgb, var(--primary) 16%, var(--surface));
+  color: var(--primary-hover);
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.task-card .task-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.task-card .task-actions button {
+  border: 0.0625rem solid var(--border);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--bg);
+  color: var(--heading);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.task-card .task-actions button:hover {
+  border-color: var(--primary);
+  background-color: var(--primary);
+  color: var(--surface);
+}
+
+.task-card:has(input[type="checkbox"]:checked) {
+  opacity: 0.72;
+}
+
+.task-card:has(input[type="checkbox"]:checked) .task-title {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+@media (max-width: 37.5rem) {
+  .task-card {
+    flex-wrap: wrap;
+  }
+
+  .task-content {
+    flex-basis: 100%;
+  }
+
+  .task-card .task-actions {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  .task-card .task-actions button {
+    flex: 1;
+  }
+}
+
+@media (min-width: 26.625rem) {
   .content-header {
     display: flex;
     flex-direction: row;
