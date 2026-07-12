@@ -5,3 +5,10 @@ if (DOM.openTaskModal) {
     DOM.taskModal?.showModal();
   });
 }
+
+if (DOM.cancelTask) {
+  DOM.cancelTask.addEventListener("click", (event) => {
+    event.preventDefault();
+    DOM.taskModal?.close();
+  });
+}
