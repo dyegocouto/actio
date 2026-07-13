@@ -4,4 +4,7 @@ export const DOM = {
   taskForm: document.querySelector(".task-form"),
   cancelTask: document.querySelector("[data-action='cancel-task']"),
   taskContainer: document.querySelector(".task-container"),
+  taskCount: document.querySelector(".left-header p"),
+  completedCount: document.querySelector(".completed-number"),
+  inProgressCount: document.querySelector(".in-progress-number"),
 };

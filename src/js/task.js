@@ -1,8 +1,11 @@
 import { DOM } from "./DOM.js";
+import { getActiveProjectId } from "./sidebar.js";
+import { addTask, getTasks, updateTask } from "./task-store.js";
 
-function createTaskCard({ title, description, dueDate, priority }) {
+function createTaskCard({ id, title, description, dueDate, priority, completed }) {
   const taskCard = document.createElement("div");
   taskCard.className = "task-card";
+  taskCard.dataset.taskId = id;
 
   const taskContent = document.createElement("div");
   taskContent.className = "task-content";
@@ -10,6 +13,7 @@ function createTaskCard({ title, description, dueDate, priority }) {
   const completion = document.createElement("input");
   completion.type = "checkbox";
   completion.name = "task-completion";
+  completion.checked = completed;
 
   const taskInfo = document.createElement("div");
   taskInfo.className = "task-info";
@@ -47,6 +51,23 @@ function createTaskCard({ title, description, dueDate, priority }) {
   return taskCard;
 }
 
+function updateTaskSummary(tasks) {
+  const completed = tasks.filter((task) => task.completed).length;
+  const inProgress = tasks.length - completed;
+
+  if (DOM.taskCount) DOM.taskCount.textContent = `You have ${inProgress} task(s) to complete.`;
+  if (DOM.completedCount) DOM.completedCount.textContent = completed;
+  if (DOM.inProgressCount) DOM.inProgressCount.textContent = inProgress;
+}
+
+function renderTasks(projectId = getActiveProjectId()) {
+  if (!DOM.taskContainer || !projectId) return;
+
+  const tasks = getTasks(projectId);
+  DOM.taskContainer.replaceChildren(...tasks.map(createTaskCard));
+  updateTaskSummary(tasks);
+}
+
 if (DOM.openTaskModal) {
   DOM.openTaskModal.addEventListener("click", () => {
     DOM.taskModal?.showModal();
@@ -73,16 +94,33 @@ if (DOM.taskForm && DOM.taskContainer) {
       return;
     }
 
-    DOM.taskContainer.append(
-      createTaskCard({
-        title,
-        description: formData.get("task-description")?.trim() || "",
-        dueDate: formData.get("due-date") || "",
-        priority: formData.get("priority") || "medium",
-      }),
-    );
+    const projectId = getActiveProjectId();
+    if (!projectId) return;
+
+    addTask(projectId, {
+      title,
+      description: formData.get("task-description")?.trim() || "",
+      dueDate: formData.get("due-date") || "",
+      priority: formData.get("priority") || "medium",
+    });
 
     DOM.taskForm.reset();
     DOM.taskModal?.close();
+    renderTasks(projectId);
   });
 }
+
+DOM.taskContainer?.addEventListener("change", (event) => {
+  const completion = event.target.closest("input[name='task-completion']");
+  const taskId = completion?.closest(".task-card")?.dataset.taskId;
+  const projectId = getActiveProjectId();
+
+  if (!completion || !taskId || !projectId) return;
+
+  updateTask(projectId, taskId, { completed: completion.checked });
+  renderTasks(projectId);
+});
+
+document.addEventListener("projectchange", (event) => renderTasks(event.detail.projectId));
+
+renderTasks();
