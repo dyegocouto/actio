@@ -71,7 +71,7 @@
   color: var(--text);
 }
 
-.content-tasks {
+.task-container {
   display: grid;
   gap: 0.875rem;
   margin-top: 2rem;

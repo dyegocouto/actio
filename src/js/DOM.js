@@ -3,5 +3,5 @@ export const DOM = {
   taskModal: document.querySelector(".task-modal"),
   taskForm: document.querySelector(".task-form"),
   cancelTask: document.querySelector("[data-action='cancel-task']"),
-  contentTasks: document.querySelector(".content-tasks"),
+  taskContainer: document.querySelector(".task-container"),
 };

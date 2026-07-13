@@ -61,7 +61,7 @@ if (DOM.cancelTask) {
   });
 }
 
-if (DOM.taskForm && DOM.contentTasks) {
+if (DOM.taskForm && DOM.taskContainer) {
   DOM.taskForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
@@ -73,7 +73,7 @@ if (DOM.taskForm && DOM.contentTasks) {
       return;
     }
 
-    DOM.contentTasks.append(
+    DOM.taskContainer.append(
       createTaskCard({
         title,
         description: formData.get("task-description")?.trim() || "",
