@@ -36,10 +36,10 @@
               </button>
               <dialog class="task-modal">
                 <h2 class="modal-title">New Task</h2>
-                <form action="#" class="task-form">
+                <form class="task-form">
                   <label for="task-title"
                     >Title
-                    <input id="task-title" type="text" />
+                    <input id="task-title" type="text" required />
                   </label>
                   <label for="task-description"
                     >Description
@@ -83,28 +83,7 @@
                 <span class="in-progress-number">0</span>
               </div>
             </div>
-            <div class="content-tasks">
-              <div class="task-card">
-                <div class="task-content">
-                  <input
-                    type="checkbox"
-                    name="task-completion"
-                    id="task-completion"
-                  />
-                  <div class="task-info">
-                    <div class="task-header">
-                      <h4 class="task-title">Buy a new bike for Kyle</h4>
-                      <span class="task-priority">medium</span>
-                    </div>
-                    <div class="due-date">2026-08-12</div>
-                  </div>
-                </div>
-                <div class="task-actions">
-                  <button class="edit-task">Edit</button>
-                  <button class="remove-task">Remove</button>
-                </div>
-              </div>
-            </div>
+            <div class="content-tasks"></div>
           </div>
         </main>
       </div>
