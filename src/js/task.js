@@ -1,6 +1,6 @@
 import { DOM } from "./DOM.js";
 import { getActiveProjectId } from "./sidebar.js";
-import { addTask, getTasks, updateTask } from "./task-store.js";
+import { addTask, getTasks, removeTask, updateTask } from "./task-store.js";
 
 function createTaskCard({ id, title, description, dueDate, priority, completed }) {
   const taskCard = document.createElement("div");
@@ -118,6 +118,17 @@ DOM.taskContainer?.addEventListener("change", (event) => {
   if (!completion || !taskId || !projectId) return;
 
   updateTask(projectId, taskId, { completed: completion.checked });
+  renderTasks(projectId);
+});
+
+DOM.taskContainer?.addEventListener("click", (event) => {
+  const removeButton = event.target.closest(".remove-task");
+  const taskId = removeButton?.closest(".task-card")?.dataset.taskId;
+  const projectId = getActiveProjectId();
+
+  if (!removeButton || !taskId || !projectId) return;
+
+  removeTask(projectId, taskId);
   renderTasks(projectId);
 });
 

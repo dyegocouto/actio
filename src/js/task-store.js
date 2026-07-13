@@ -35,3 +35,14 @@ export function updateTask(projectId, taskId, changes) {
   Object.assign(task, changes);
   saveTasks(tasksByProject);
 }
+
+export function removeTask(projectId, taskId) {
+  const tasksByProject = readTasks();
+  const tasks = tasksByProject[projectId] || [];
+  const remainingTasks = tasks.filter(({ id }) => id !== taskId);
+
+  if (remainingTasks.length === tasks.length) return;
+
+  tasksByProject[projectId] = remainingTasks;
+  saveTasks(tasksByProject);
+}
