@@ -8,85 +8,83 @@
   </head>
   <body>
     <div id="app">
-      <div class="global-wrapper">
-        <header class="header">
-          <h1 class="header__title">Actio</h1>
-        </header>
-        <nav class="sidebar">
-          <h2 class="sidebar__title">Task Manager</h2>
-          <div class="projects-header">
-            <h3>Projects</h3>
-            <button class="add-project">+ New</button>
-          </div>
-          <ul class="project-list">
-            <li class="project project--active">Default</li>
-            <li class="project">School</li>
-            <li class="project">Work</li>
-          </ul>
-        </nav>
-        <main class="main">
-          <div class="content">
-            <div class="content-header">
-              <div class="left-header">
-                <h2>Task List</h2>
-                <p>You have 0 task(s) to complete.</p>
-              </div>
-              <button class="button add-task" data-action="open-task-modal">
-                + Add Task
-              </button>
-              <dialog class="task-modal">
-                <h2 class="modal-title">New Task</h2>
-                <form class="task-form">
-                  <label for="task-title"
-                    >Title
-                    <input id="task-title" type="text" required />
-                  </label>
-                  <label for="task-description"
-                    >Description
-                    <textarea
-                      name="task-description"
-                      id="task-description"
-                      rows="4"
-                      maxlength="80"
-                    ></textarea>
-                  </label>
-                  <label for="due-date"
-                    >Due date
-                    <input type="date" name="due-date" id="due-date" />
-                  </label>
-                  <label for="priority"
-                    >Priority
-                    <select name="priority" id="priority">
-                      <option value="low">Low</option>
-                      <option value="medium">Medium</option>
-                      <option value="high">High</option>
-                    </select>
-                  </label>
-                  <div class="task-actions">
-                    <button class="cancel-task" data-action="cancel-task">
-                      Cancel
-                    </button>
-                    <button class="save-task" data-action="save-task">
-                      Save Task
-                    </button>
-                  </div>
-                </form>
-              </dialog>
+      <header class="header">
+        <h1 class="header__title">Actio</h1>
+      </header>
+      <nav class="sidebar">
+        <h2 class="sidebar__title">Task Manager</h2>
+        <div class="projects-header">
+          <h3>Projects</h3>
+          <button class="add-project">+ New</button>
+        </div>
+        <ul class="project-list">
+          <li class="project project--active">Default</li>
+          <li class="project">School</li>
+          <li class="project">Work</li>
+        </ul>
+      </nav>
+      <main class="main">
+        <div class="content">
+          <div class="content-header">
+            <div class="left-header">
+              <h2>Task List</h2>
+              <p>You have 0 task(s) to complete.</p>
             </div>
-            <div class="content-dashboard">
-              <div class="status">
-                <p>Completed</p>
-                <span class="completed-number">0</span>
-              </div>
-              <div class="status">
-                <p>In Progress</p>
-                <span class="in-progress-number">0</span>
-              </div>
-            </div>
-            <div class="task-container"></div>
+            <button class="button add-task" data-action="open-task-modal">
+              + Add Task
+            </button>
+            <dialog class="task-modal">
+              <h2 class="modal-title">New Task</h2>
+              <form class="task-form">
+                <label for="task-title"
+                  >Title
+                  <input id="task-title" type="text" required />
+                </label>
+                <label for="task-description"
+                  >Description
+                  <textarea
+                    name="task-description"
+                    id="task-description"
+                    rows="4"
+                    maxlength="80"
+                  ></textarea>
+                </label>
+                <label for="due-date"
+                  >Due date
+                  <input type="date" name="due-date" id="due-date" />
+                </label>
+                <label for="priority"
+                  >Priority
+                  <select name="priority" id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </label>
+                <div class="task-actions">
+                  <button class="cancel-task" data-action="cancel-task">
+                    Cancel
+                  </button>
+                  <button class="save-task" data-action="save-task">
+                    Save Task
+                  </button>
+                </div>
+              </form>
+            </dialog>
           </div>
-        </main>
-      </div>
+          <div class="content-dashboard">
+            <div class="status">
+              <p>Completed</p>
+              <span class="completed-number">0</span>
+            </div>
+            <div class="status">
+              <p>In Progress</p>
+              <span class="in-progress-number">0</span>
+            </div>
+          </div>
+          <div class="task-container"></div>
+        </div>
+      </main>
     </div>
     <script type="module" src="/src/js/main.js"></script>
   </body>
