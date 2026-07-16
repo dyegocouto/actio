@@ -1,4 +1,10 @@
 export const DOM = {
+  openProjModal: document.querySelector("[data-action='open-proj-modal']"),
+  projModal: document.querySelector(".proj-modal"),
+  projForm: document.querySelector(".proj-form"),
+  projTitle: document.querySelector("#proj-title"),
+  cancelProj: document.querySelector("[data-action='cancel-proj']"),
+  projectList: document.querySelector(".project-list"),
   openTaskModal: document.querySelector("[data-action='open-task-modal']"),
   taskModal: document.querySelector(".task-modal"),
   taskForm: document.querySelector(".task-form"),

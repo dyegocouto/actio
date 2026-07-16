@@ -26,7 +26,7 @@ function openTaskModalForEdit(task, projectId) {
   if (!form) return;
 
   form.querySelector("#task-title").value = task.title || "";
-  form.querySelector("#task-description").value = task.description || "";
+  form.querySelector("#task-desc").value = task.description || "";
   form.querySelector("#due-date").value = task.dueDate || "";
   form.querySelector("#priority").value = task.priority || "medium";
   const modalTitle = DOM.taskModal?.querySelector(".modal-title");
@@ -73,7 +73,7 @@ function createTaskCard({
   taskPriority.textContent = priority;
 
   const taskDescription = document.createElement("p");
-  taskDescription.className = "task-description";
+  taskDescription.className = "task-desc";
   taskDescription.textContent = description;
   taskDescription.hidden = !description;
 
@@ -145,7 +145,7 @@ if (DOM.taskForm && DOM.taskContainer) {
 
     const taskDetails = {
       title,
-      description: formData.get("task-description")?.trim() || "",
+      description: formData.get("task-desc")?.trim() || "",
       dueDate: formData.get("due-date") || "",
       priority: formData.get("priority") || "medium",
     };

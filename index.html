@@ -15,8 +15,31 @@
         <h2 class="sidebar__title">Task Manager</h2>
         <div class="projects-header">
           <h3>Projects</h3>
-          <button class="add-project">+ New</button>
+          <button class="add-project" data-action="open-proj-modal">
+            + New
+          </button>
         </div>
+        <dialog class="modal proj-modal">
+          <h2 class="modal-title">New Project</h2>
+          <form class="modal-form proj-form">
+            <label for="proj-title"
+              >Title
+              <input id="proj-title" type="text" required />
+            </label>
+            <div class="modal-actions">
+              <button
+                class="cancel-modal"
+                type="button"
+                data-action="cancel-proj"
+              >
+                Cancel
+              </button>
+              <button class="save-modal" data-action="save-proj">
+                Save Project
+              </button>
+            </div>
+          </form>
+        </dialog>
         <ul class="project-list">
           <li class="project project--active">Default</li>
           <li class="project">School</li>
@@ -33,18 +56,18 @@
             <button class="button add-task" data-action="open-task-modal">
               + Add Task
             </button>
-            <dialog class="task-modal">
+            <dialog class="modal task-modal">
               <h2 class="modal-title">New Task</h2>
-              <form class="task-form">
+              <form class="modal-form task-form">
                 <label for="task-title"
                   >Title
                   <input id="task-title" type="text" required />
                 </label>
-                <label for="task-description"
+                <label for="task-desc"
                   >Description
                   <textarea
-                    name="task-description"
-                    id="task-description"
+                    name="task-desc"
+                    id="task-desc"
                     rows="4"
                     maxlength="80"
                   ></textarea>
@@ -61,11 +84,11 @@
                     <option value="high">High</option>
                   </select>
                 </label>
-                <div class="task-actions">
-                  <button class="cancel-task" data-action="cancel-task">
+                <div class="modal-actions">
+                  <button class="cancel-modal" data-action="cancel-task">
                     Cancel
                   </button>
-                  <button class="save-task" data-action="save-task">
+                  <button class="save-modal" data-action="save-task">
                     Save Task
                   </button>
                 </div>
