@@ -1,4 +1,14 @@
 import { DOM } from "./DOM.js";
+import { addProject, getProjects } from "./proj-store.js";
+
+function renderProject(title) {
+  const project = document.createElement("li");
+  project.className = "project";
+  project.textContent = title;
+  DOM.projectList?.append(project);
+}
+
+getProjects().forEach(renderProject);
 
 if (DOM.openProjModal) {
   DOM.openProjModal.addEventListener("click", () => {
@@ -17,10 +27,8 @@ DOM.projForm?.addEventListener("submit", (event) => {
   const title = DOM.projTitle?.value.trim();
   if (!title || !DOM.projectList) return;
 
-  const project = document.createElement("li");
-  project.className = "project";
-  project.textContent = title;
-  DOM.projectList.append(project);
+  addProject(title);
+  renderProject(title);
 
   DOM.projModal?.close();
 });
