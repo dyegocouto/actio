@@ -1,11 +1,15 @@
 const STORAGE_KEY = "actio-projects";
+const DEFAULT_PROJECTS = ["Default"];
 
 function readProjects() {
   try {
-    const projects = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    const storedProjects = localStorage.getItem(STORAGE_KEY);
+    if (storedProjects === null) return null;
+
+    const projects = JSON.parse(storedProjects);
     return Array.isArray(projects) ? projects : [];
   } catch {
-    return [];
+    return null;
   }
 }
 
@@ -14,11 +18,26 @@ function saveProjects(projects) {
 }
 
 export function getProjects() {
-  return readProjects();
+  const projects = readProjects();
+  return projects ?? DEFAULT_PROJECTS;
 }
 
 export function addProject(title) {
-  const projects = readProjects();
+  const projects = getProjects();
   projects.push(title);
   saveProjects(projects);
+}
+
+export function renameProject(previousTitle, title) {
+  const projects = getProjects();
+  const projectIndex = projects.indexOf(previousTitle);
+
+  if (projectIndex === -1) return;
+
+  projects[projectIndex] = title;
+  saveProjects(projects);
+}
+
+export function removeProject(title) {
+  saveProjects(getProjects().filter((project) => project !== title));
 }

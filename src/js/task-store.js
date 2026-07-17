@@ -46,3 +46,22 @@ export function removeTask(projectId, taskId) {
   tasksByProject[projectId] = remainingTasks;
   saveTasks(tasksByProject);
 }
+
+export function renameProjectTasks(previousProjectId, projectId) {
+  if (previousProjectId === projectId) return;
+
+  const tasksByProject = readTasks();
+  if (!(previousProjectId in tasksByProject)) return;
+
+  tasksByProject[projectId] = tasksByProject[previousProjectId];
+  delete tasksByProject[previousProjectId];
+  saveTasks(tasksByProject);
+}
+
+export function removeProjectTasks(projectId) {
+  const tasksByProject = readTasks();
+  if (!(projectId in tasksByProject)) return;
+
+  delete tasksByProject[projectId];
+  saveTasks(tasksByProject);
+}

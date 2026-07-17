@@ -44,10 +44,52 @@
 .project {
   grid-column: span 1;
   padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text);
   border: 0.0625rem solid var(--border);
   border-radius: 0.625rem;
   cursor: pointer;
+}
+
+.project__title {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.project-action {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.project-action:hover,
+.project-action:focus-visible {
+  background-color: color-mix(in srgb, currentColor 15%, transparent);
+}
+
+.project-action img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.project--active .project-action img {
+  filter: brightness(0) invert(1);
 }
 
 .project:last-child:nth-child(odd) {

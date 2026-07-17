@@ -73,7 +73,7 @@ h3 {
     grid-template:
       "header header" auto
       "sidebar main" 1fr
-      / minmax(18rem, min(25%, 300px)) 1fr;
+      / minmax(18rem, min(25%, 21.875rem)) 1fr;
   }
 
   .header {

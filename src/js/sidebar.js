@@ -17,6 +17,8 @@ function setActiveProject(projectItem) {
 
 if (projectList) {
   projectList.addEventListener("click", (event) => {
+    if (event.target.closest(".project-action")) return;
+
     const projectItem = event.target.closest(".project");
 
     if (!projectItem || !projectList.contains(projectItem)) {
