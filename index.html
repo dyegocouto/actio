@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/actio/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actio</title>
+    <script type="module" crossorigin src="/actio/assets/index-Der82gt6.js"></script>
+    <link rel="stylesheet" crossorigin href="/actio/assets/index-DBf6ej0L.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <h1 class="header__title">Actio</h1>
+      </header>
+      <nav class="sidebar">
+        <h2 class="sidebar__title">Task Manager</h2>
+        <div class="projects-header">
+          <h3>Projects</h3>
+          <button class="add-project" data-action="open-proj-modal">
+            + New
+          </button>
+        </div>
+        <dialog class="modal proj-modal">
+          <h2 class="modal-title">New Project</h2>
+          <form class="modal-form proj-form">
+            <label for="proj-title"
+              >Title
+              <input id="proj-title" type="text" required />
+            </label>
+            <div class="modal-actions">
+              <button
+                class="cancel-modal"
+                type="button"
+                data-action="cancel-proj"
+              >
+                Cancel
+              </button>
+              <button class="save-modal" data-action="save-proj">
+                Save Project
+              </button>
+            </div>
+          </form>
+        </dialog>
+        <ul class="project-list"></ul>
+      </nav>
+      <main class="main">
+        <div class="content">
+          <div class="content-header">
+            <div class="left-header">
+              <h2>Task List</h2>
+              <p>You have 0 task(s) to complete.</p>
+            </div>
+            <button class="button add-task" data-action="open-task-modal">
+              + Add Task
+            </button>
+            <dialog class="modal task-modal">
+              <h2 class="modal-title">New Task</h2>
+              <form class="modal-form task-form">
+                <label for="task-title"
+                  >Title
+                  <input id="task-title" type="text" required />
+                </label>
+                <label for="task-desc"
+                  >Description
+                  <textarea
+                    name="task-desc"
+                    id="task-desc"
+                    rows="4"
+                    maxlength="80"
+                  ></textarea>
+                </label>
+                <label for="due-date"
+                  >Due date
+                  <input type="date" name="due-date" id="due-date" />
+                </label>
+                <label for="priority"
+                  >Priority
+                  <select name="priority" id="priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                  </select>
+                </label>
+                <div class="modal-actions">
+                  <button class="cancel-modal" data-action="cancel-task">
+                    Cancel
+                  </button>
+                  <button class="save-modal" data-action="save-task">
+                    Save Task
+                  </button>
+                </div>
+              </form>
+            </dialog>
+          </div>
+          <div class="content-dashboard">
+            <div class="status">
+              <p>Completed</p>
+              <span class="completed-number">0</span>
+            </div>
+            <div class="status">
+              <p>In Progress</p>
+              <span class="in-progress-number">0</span>
+            </div>
+          </div>
+          <div class="task-container"></div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
